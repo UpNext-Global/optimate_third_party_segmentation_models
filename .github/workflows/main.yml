@@ -1,0 +1,11 @@
+name: Common workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  call-common-workflow:
+    uses: UpNext-Global/.github-private/.github/workflows/main.yml@main
+    secrets: inherit

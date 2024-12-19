@@ -1,0 +1,20 @@
+name: Create tag workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch name'
+        default: 'main'
+        required: true
+        type: string
+  pull_request:
+      branches: 
+          - main
+      types: [closed]
+
+
+jobs:
+  call-tag-release-workflow:
+    uses: UpNext-Global/.github-private/.github/workflows/set_tag_release.yml@main
+    secrets: inherit
